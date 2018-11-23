@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="UTF-8">
+      <title>Argument Facilitator</title>
+    </head>
+    <body>
+      <h1>Argument Facilitator</h1>
+      <p>Welcome to our Argument Facilitator, built with Electron.</p>
+      <p>Hold down the r key to record your side of the argument. </p>
+      <div>
+        <input type="file" accept = "audio/*" capture> </input>
+        <audio id ="player" controls> </audio>
+      </div>
+    </body>
+    <script>
+      require('./microphone.js')
+    </script>
+  </html>
