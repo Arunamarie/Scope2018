@@ -31,6 +31,7 @@ const recordAudio = () =>
 const sleep = time => new Promise(resolve => setTimeout(resolve, time));
 
 const handleAction = async () => {
+  document.getElementById("audioDiv").innerHTML += "<audio id=\"Gordon\" src=\"Gordon_Ramsay.mp3\" preload=\"auto\"></audio>"
   const recorder = await recordAudio();
   const actionButton = document.getElementById('action');
   actionButton.disabled = true;
@@ -40,4 +41,5 @@ const handleAction = async () => {
   audio.play();
   await sleep(3000);
   actionButton.disabled = false;
+  document.getElementById("Gordon").play();
 }
