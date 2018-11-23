@@ -1,19 +1,12 @@
-<!DOCTYPE html>
-  <html>
-    <head>
-      <meta charset="UTF-8">
-      <title>Argument Facilitator</title>
-    </head>
-    <body>
-      <h1>Argument Facilitator</h1>
-      <p>Welcome to our Argument Facilitator, built with Electron.</p>
-      <p>Hold down the r key to record your side of the argument.</p>
-      <div>
-        <input type="file" accept = "audio/*" capture> </input>
-        <audio id ="player" controls> </audio>
-      </div>
-    </body>
-    <script>
-      require('./microphone.js')
-    </script>
-  </html>
+<!doctype html>
+<html>
+  <head>
+    <title>Record Audio Test</title>
+  </head>
+  <body>
+    <h1>Audio Recording Test</h1>
+    <p>Talk for 3 seconds, then you will hear your recording played back</p>
+    <script src="index.js"></script>
+    <button id="action" onclick="handleAction()">Start recording...</button>
+  </body>
+</html>
