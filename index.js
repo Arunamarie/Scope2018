@@ -1,4 +1,4 @@
-// https://github.com/bryanjenningz/record-audio
+// Edited based on https://github.com/bryanjenningz/record-audio
 
 const recordAudio = () =>
   new Promise(async resolve => {
@@ -30,6 +30,8 @@ const recordAudio = () =>
 
 const sleep = time => new Promise(resolve => setTimeout(resolve, time));
 
+// ORIGINAL CODE (WORKING)
+/*
 const handleAction = async () => {
   document.getElementById("audioDiv").innerHTML += "<audio id=\"Gordon\" src=\"Gordon_Ramsay.mp3\" preload=\"auto\"></audio>"
   const recorder = await recordAudio();
@@ -42,4 +44,25 @@ const handleAction = async () => {
   await sleep(3000);
   actionButton.disabled = false;
   document.getElementById("Gordon").play();
+}
+*/
+
+var recorder;
+const start = async () => {
+  document.getElementById("audioDiv").innerHTML += "<audio id=\"Gordon\" src=\"Gordon_Ramsay.mp3\" preload=\"auto\"></audio>"
+  recorder = await recordAudio();
+  const actionButton = document.getElementById('startRecording');
+  actionButton.disabled = true;
+  recorder.start();
+}
+
+const stop = async () => {
+  const audio = await recorder.stop();
+  audio.play();
+  //await sleep(audio.duration);
+  audio.onended = function() {
+    document.getElementById("Gordon").play();
+    actionButton.disabled = false;
+    document.getElementById("recordings").innerHTML += audio + "<br />";
+  };
 }
