@@ -27,7 +27,7 @@ function start() {
 
 function stop() {
   document.getElementById("recordingText").hidden = true;
-// Once you are done singing your best song, stop and get the mp3.
+  // Once you are done singing your best song, stop and get the mp3.
   recorder.stop().getMp3().then(([buffer, blob]) => {
     // do what ever you want with buffer and blob
     // Example: Create a mp3 file and play

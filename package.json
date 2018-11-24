@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/Arunamarie/Scope2018#readme",
   "dependencies": {
-    "ffmpeg": "0.0.4",
     "mic-recorder-to-mp3": "^2.2.0"
   }
 }
