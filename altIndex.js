@@ -8,9 +8,15 @@ const recorder = new MicRecorder({
   bitRate: 128
 });
 
+
+
 function start() {
-  document.getElementById("audioDiv").innerHTML += "<audio id=\"Gordon\" src=\"Gordon_Ramsay.mp3\" preload=\"auto\"></audio>"
   document.getElementById("recordingText").hidden = false;
+
+  for (var i = 1; i <= 10; i++) {
+    document.getElementById("audioDiv").innerHTML += "<audio id=\"gordon" +
+     i + "\" src=\"audio/gordon" + i + ".mp3\" preload=\"auto\"></audio>"
+  }
   // Start recording. Browser will request permission to use your microphone.
   recorder.start().then(() => {
     // something else
@@ -38,7 +44,7 @@ function stop() {
     document.querySelector('#playlist').appendChild(li);
 
     player.onended = function() {
-      document.getElementById("Gordon").play();
+      document.getElementById("gordon" + Math.floor((Math.random() * 10) + 1)).play();
     }
 
   }).catch((e) => {
