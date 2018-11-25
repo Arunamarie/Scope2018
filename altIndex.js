@@ -51,9 +51,11 @@ function stop() {
       //Generate a random number, append to Gordon, and then play that file.
       document.getElementById("gordon" + number).play();
 
-      startRecording.disabled = false;
-      stopRecording.disabled = true;
-      recordAnotherComment.disabled = true;
+      document.getElementById("gordon" + number).onended = function() {
+        startRecording.disabled = false;
+        stopRecording.disabled = true;
+        recordAnotherComment.disabled = true;
+      }
     }
 
   }).catch((e) => {
@@ -66,7 +68,8 @@ function stop() {
 
 
 function anotherComment() {
-
+  stopRecording.disabled = true;
+  recordAnotherComment.disabled = true;
   document.getElementById("recordingText").hidden = true;
   // Once you are done singing your best song, stop and get the mp3.
   recorder.stop().getMp3().then(([buffer, blob]) => {
@@ -89,13 +92,11 @@ function anotherComment() {
       document.getElementById("gordon" + number).play();
 
       document.getElementById("gordon" + number).onended = function() {
-        start();
         startRecording.disabled = false;
-
+        start();
       }
 
-      stopRecording.disabled = true;
-      recordAnotherComment.disabled = true;
+
     }
 
   }).catch((e) => {
