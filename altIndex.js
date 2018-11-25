@@ -10,8 +10,12 @@ const recorder = new MicRecorder({
 
 
 function start() {
+  startRecording.disabled = true;
+  stopRecording.disabled = false;
+  recordAnotherComment.disabled = false;
   document.getElementById("recordingText").hidden = false;
 
+//Takes the mp3 files and puts them into the audioDiv.
   for (var i = 1; i <= 10; i++) {
     document.getElementById("audioDiv").innerHTML += "<audio id=\"gordon" +
      i + "\" src=\"audio/gordon" + i + ".mp3\" preload=\"auto\"></audio>"
@@ -25,6 +29,9 @@ function start() {
 }
 
 function stop() {
+  startRecording.disabled = false;
+  stopRecording.disabled = true;
+  recordAnotherComment.disabled = true;
   document.getElementById("recordingText").hidden = true;
   // Once you are done singing your best song, stop and get the mp3.
   recorder.stop().getMp3().then(([buffer, blob]) => {
@@ -44,6 +51,7 @@ function stop() {
 
     player.onended = function() {
       var number = Math.floor((Math.random() * 10) + 1);
+      //Generate a random number, append to Gordon, and then play that file.
       document.getElementById("gordon" + number).play();
     }
 
@@ -56,6 +64,9 @@ function stop() {
 
 
 function anotherComment() {
+  startRecording.disabled = false;
+  stopRecording.disabled = true;
+  recordAnotherComment.disabled = true;
   document.getElementById("recordingText").hidden = true;
   // Once you are done singing your best song, stop and get the mp3.
   recorder.stop().getMp3().then(([buffer, blob]) => {
