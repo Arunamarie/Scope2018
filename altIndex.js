@@ -29,6 +29,8 @@ function start() {
 }
 
 function stop() {
+  stopRecording.disabled = true;
+  recordAnotherComment.disabled = true;
   document.getElementById("recordingText").hidden = true;
   // Once you are done singing your best song, stop and get the mp3.
   recorder.stop().getMp3().then(([buffer, blob]) => {
@@ -53,8 +55,6 @@ function stop() {
 
       document.getElementById("gordon" + number).onended = function() {
         startRecording.disabled = false;
-        stopRecording.disabled = true;
-        recordAnotherComment.disabled = true;
       }
     }
 
