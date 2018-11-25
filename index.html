@@ -2,24 +2,28 @@
 <!doctype html>
 <html>
   <head>
-    <title>Record Audio Test</title>
+    <title>Argument Simulator</title>
   </head>
   <body>
-    <h1>Audio Recording Test</h1>
-    <p>Record yourself, then you will hear your voice played back and get a response.</p>
+    <div id="wrapper" style="background-color:#6e6d75;">
+      <div id="header"><img src="gordon_yelling.jpg" style="width:540px;height:305px;"></div>
 
-    <script src="altIndex.js"></script>
+      <p style="font-size:40px;text-align:center;">Argument Simulator</p>
+      <p style="text-align:center;">Record yourself, then you will hear your voice played back and get a response.</p>
 
-    <!-- ORIGINAL CODE (WORKING) -->
-    <!-- <button id="action" onclick="handleAction()">Start recording...</button> -->
-    <button id="startRecording" onclick="start()">Start Recording</button>
-    <button id="stopRecording" onclick="stop()">Stop Recording</button>
-    <button id="recordAnotherComment" onclick="anotherComment()">Stop Recording and Make Another Comment</button>
+      <script src="altIndex.js"></script>
 
-    <p id="recordingText" style="font-size:50px;color:red;" hidden>RECORDING</p>
+      <div id="buttons" style="text-align:center;">
+        <button id="startRecording" onclick="start()">Start Recording</button>
+        <button id="stopRecording" onclick="stop()">Stop Recording</button>
+        <button id="recordAnotherComment" onclick="anotherComment()">Stop Recording and Make Another Comment</button>
+      </div>
 
-    <div class="audio" id="audioDiv"></div>
+      <p id="recordingText" style="font-size:50px;color:red;font-family:Impact, Charcoal, sans-serif;" hidden>RECORDING</p>
 
-    <ul id="playlist"></ul>
+      <div class="audio" id="audioDiv"></div>
+
+      <ul id="playlist"></ul>
+    </div>
   </body>
 </html>
