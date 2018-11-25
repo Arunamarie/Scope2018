@@ -29,9 +29,6 @@ function start() {
 }
 
 function stop() {
-  startRecording.disabled = false;
-  stopRecording.disabled = true;
-  recordAnotherComment.disabled = true;
   document.getElementById("recordingText").hidden = true;
   // Once you are done singing your best song, stop and get the mp3.
   recorder.stop().getMp3().then(([buffer, blob]) => {
@@ -53,6 +50,10 @@ function stop() {
       var number = Math.floor((Math.random() * 10) + 1);
       //Generate a random number, append to Gordon, and then play that file.
       document.getElementById("gordon" + number).play();
+
+      startRecording.disabled = false;
+      stopRecording.disabled = true;
+      recordAnotherComment.disabled = true;
     }
 
   }).catch((e) => {
@@ -60,13 +61,12 @@ function stop() {
     console.log(e);
   });
 
+
 }
 
 
 function anotherComment() {
-  startRecording.disabled = false;
-  stopRecording.disabled = true;
-  recordAnotherComment.disabled = true;
+
   document.getElementById("recordingText").hidden = true;
   // Once you are done singing your best song, stop and get the mp3.
   recorder.stop().getMp3().then(([buffer, blob]) => {
@@ -90,7 +90,12 @@ function anotherComment() {
 
       document.getElementById("gordon" + number).onended = function() {
         start();
+        startRecording.disabled = false;
+
       }
+
+      stopRecording.disabled = true;
+      recordAnotherComment.disabled = true;
     }
 
   }).catch((e) => {
