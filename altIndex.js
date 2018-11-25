@@ -9,7 +9,6 @@ const recorder = new MicRecorder({
 });
 
 
-
 function start() {
   document.getElementById("recordingText").hidden = false;
 
@@ -44,7 +43,43 @@ function stop() {
     document.querySelector('#playlist').appendChild(li);
 
     player.onended = function() {
-      document.getElementById("gordon" + Math.floor((Math.random() * 10) + 1)).play();
+      var number = Math.floor((Math.random() * 10) + 1);
+      document.getElementById("gordon" + number).play();
+    }
+
+  }).catch((e) => {
+    alert('We could not retrieve your message');
+    console.log(e);
+  });
+
+}
+
+
+function anotherComment() {
+  document.getElementById("recordingText").hidden = true;
+  // Once you are done singing your best song, stop and get the mp3.
+  recorder.stop().getMp3().then(([buffer, blob]) => {
+    // do what ever you want with buffer and blob
+    // Example: Create a mp3 file and play
+    const file = new File(buffer, 'me-at-thevoice.mp3', {
+      type: blob.type,
+      lastModified: Date.now()
+    });
+
+    const li = document.createElement('li');
+    const player = new Audio(URL.createObjectURL(file));
+    player.play();
+    player.controls = true;
+    li.appendChild(player);
+    document.querySelector('#playlist').appendChild(li);
+
+    player.onended = function() {
+      var number = Math.floor((Math.random() * 10) + 1);
+      document.getElementById("gordon" + number).play();
+
+      document.getElementById("gordon" + number).onended = function() {
+        start();
+      }
     }
 
   }).catch((e) => {
