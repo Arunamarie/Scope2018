@@ -49,7 +49,8 @@ function stop() {
     document.querySelector('#playlist').appendChild(li);
 
     player.onended = function() {
-      var number = Math.floor((Math.random() * 14) + 1);
+      var number = Math.floor((Math.random() * 22) + 1);
+      //var number = (Math.random() * 22) + 1;
       //Generate a random number, append to Gordon, and then play that file.
       document.getElementById("gordon" + number).play();
 
@@ -88,7 +89,8 @@ function anotherComment() {
     document.querySelector('#playlist').appendChild(li);
 
     player.onended = function() {
-      var number = Math.floor((Math.random() * 15) + 1);
+      var number = Math.floor((Math.random() * 22) + 1);
+      //var number = (Math.random() * 22) + 1;
       document.getElementById("gordon" + number).play();
 
       document.getElementById("gordon" + number).onended = function() {
