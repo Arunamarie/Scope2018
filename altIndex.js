@@ -16,7 +16,7 @@ function start() {
   document.getElementById("recordingText").hidden = false;
 
 //Takes the mp3 files and puts them into the audioDiv.
-  for (var i = 1; i <= 10; i++) {
+  for (var i = 1; i <= 22; i++) {
     document.getElementById("audioDiv").innerHTML += "<audio id=\"gordon" +
      i + "\" src=\"audio/gordon" + i + ".mp3\" preload=\"auto\"></audio>"
   }
