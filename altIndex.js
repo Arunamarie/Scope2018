@@ -16,7 +16,7 @@ function start() {
   document.getElementById("recordingText").hidden = false;
 
 //Takes the mp3 files and puts them into the audioDiv.
-  for (var i = 1; i <= 22; i++) {
+  for (var i = 1; i <= 27; i++) {
     document.getElementById("audioDiv").innerHTML += "<audio id=\"gordon" +
      i + "\" src=\"audio/gordon" + i + ".mp3\" preload=\"auto\"></audio>"
   }
@@ -49,7 +49,7 @@ function stop() {
     document.querySelector('#playlist').appendChild(li);
 
     player.onended = function() {
-      var number = Math.floor((Math.random() * 22) + 1);
+      var number = Math.floor((Math.random() * 27) + 1);
       //var number = (Math.random() * 22) + 1;
       //Generate a random number, append to Gordon, and then play that file.
       document.getElementById("gordon" + number).play();
@@ -89,7 +89,7 @@ function anotherComment() {
     document.querySelector('#playlist').appendChild(li);
 
     player.onended = function() {
-      var number = Math.floor((Math.random() * 22) + 1);
+      var number = Math.floor((Math.random() * 27) + 1);
       //var number = (Math.random() * 22) + 1;
       document.getElementById("gordon" + number).play();
 
