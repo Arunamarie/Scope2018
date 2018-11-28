@@ -22,6 +22,13 @@
       <p id="recordingText" style="font-size:50px;color:red;font-family:Impact, Charcoal, sans-serif;" hidden>RECORDING</p>
 
       <div class="audio" id="audioDiv"></div>
+      <script>
+        for (var i = 1; i <= 27; i++) { //edited this from 10 to 27
+          document.getElementById("audioDiv").innerHTML += "<audio id=\"gordon" +
+           i + "\" src=\"audio/gordon" + i + ".mp3\" preload=\"auto\"></audio>"
+        }
+      </script>
+
 
       <ul id="playlist"></ul>
     </div>
